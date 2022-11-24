@@ -4,6 +4,9 @@ namespace homework_2.Services.Friends
 {
     public class FriendsService : IFriendsService
     {
+        private static int _lastId = 0;
+        private static object _lock = new object();
+
         private readonly List<FriendModel> _friends;
 
         public FriendsService()
@@ -11,12 +14,12 @@ namespace homework_2.Services.Friends
             _friends = new List<FriendModel>();
         }
 
-        public int Add(FriendModel friend)
+        public FriendModel Add(FriendModel friend)
         {
-            friend.Id = _friends.Count;
+            friend.Id = GetNewId();
             _friends.Add(friend);
 
-            return friend.Id;
+            return friend;
         }
 
         public bool Delete(int id)
@@ -49,6 +52,17 @@ namespace homework_2.Services.Friends
             FriendModel? friend = _friends.FirstOrDefault(x => x.Id == id);
 
             return friend;
+        }
+
+        private int GetNewId()
+        {
+            lock (_lock)
+            {
+                _lastId += 1;
+                int newId = _lastId;
+
+                return newId;
+            }
         }
     }
 }
