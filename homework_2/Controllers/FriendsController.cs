@@ -31,9 +31,9 @@ namespace homework_2.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(new { Message = "Получился не четкий друг, проверь данные." });
 
-            _friendsService.Add(friend);
+            FriendModel newFriend = _friendsService.Add(friend);
 
-            return Redirect("/friends");
+            return Redirect($"/Friends/Update?id={newFriend.Id}");
         }
 
         [HttpGet]
