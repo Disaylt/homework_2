@@ -5,7 +5,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddSingleton<IFriendsService, FriendsService>();
+if (builder.Environment.IsDevelopment())
+{
+
+    builder.Services.AddSingleton<IFriendsService, FriendsService>();
+}
+else
+{
+    builder.Services.AddSingleton<IFriendsService, StubFriendsService>();
+}
 
 var app = builder.Build();
 
