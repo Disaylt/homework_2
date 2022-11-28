@@ -3,10 +3,10 @@ using homework_2.Models;
 
 namespace homework_2.Services.Friends
 {
-    public class FriendDbService : IFriendsService
+    public class FriendsDbService : IFriendsService
     {
         private readonly FriendContext _friendContext;
-        public FriendDbService(FriendContext friendContext)
+        public FriendsDbService(FriendContext friendContext)
         {
             _friendContext = friendContext;
         }

@@ -15,7 +15,7 @@ optionsAction.UseSqlServer(friendDbConnectString));
 if (builder.Environment.IsDevelopment())
 {
 
-    builder.Services.AddSingleton<IFriendsService, FriendsService>();
+    builder.Services.AddTransient<IFriendsService, FriendsDbService>();
 }
 else
 {
