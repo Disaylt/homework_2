@@ -12,7 +12,7 @@ string? friendDbConnectString = builder.Configuration.GetConnectionString("Frien
 builder.Services.AddDbContext<FriendContext>(optionsAction =>
 optionsAction.UseSqlServer(friendDbConnectString));
 
-if (builder.Environment.IsDevelopment())
+if (builder.Environment.IsProduction())
 {
 
     builder.Services.AddTransient<IFriendsService, FriendsDbService>();
