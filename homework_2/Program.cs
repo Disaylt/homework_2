@@ -1,9 +1,16 @@
+using homework_2.Database;
 using homework_2.Services.Friends;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Add db services
+string? friendDbConnectString = builder.Configuration.GetConnectionString("FriendDb");
+builder.Services.AddDbContext<FriendContext>(optionsAction =>
+optionsAction.UseSqlServer(friendDbConnectString));
 
 if (builder.Environment.IsDevelopment())
 {
