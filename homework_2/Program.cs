@@ -1,11 +1,11 @@
+using homework_2;
+using homework_2.Database;
 using homework_2.Services.Friends;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-
-builder.Services.AddSingleton<IFriendsService, FriendsService>();
+ServicesConfiguration.Bind(builder);
 
 var app = builder.Build();
 
