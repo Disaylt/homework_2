@@ -12,6 +12,6 @@ namespace homework_2.Models
         public string Name { get; set; } = null!;
 
         [StringLength(25, ErrorMessage = "Максимальная длинна строки 25 символов")]
-        public string Place { get; set; } = string.Empty;
+        public string? Place { get; set; }
     }
 }

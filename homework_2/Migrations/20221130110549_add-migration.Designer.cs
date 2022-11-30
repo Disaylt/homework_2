@@ -11,8 +11,8 @@ using homework_2.Database;
 namespace homework2.Migrations
 {
     [DbContext(typeof(FriendContext))]
-    [Migration("20221128124604_FriendDbMigrationV1")]
-    partial class FriendDbMigrationV1
+    [Migration("20221130110549_add-migration")]
+    partial class addmigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,8 +37,8 @@ namespace homework2.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Place")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.HasKey("Id");
 

@@ -5,7 +5,7 @@
 namespace homework2.Migrations
 {
     /// <inheritdoc />
-    public partial class FriendDbMigrationV1 : Migration
+    public partial class addmigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,7 +17,7 @@ namespace homework2.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Place = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Place = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true)
                 },
                 constraints: table =>
                 {

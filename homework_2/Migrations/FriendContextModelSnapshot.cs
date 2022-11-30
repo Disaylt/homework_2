@@ -34,8 +34,8 @@ namespace homework2.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Place")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.HasKey("Id");
 
