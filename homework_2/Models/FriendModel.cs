@@ -8,10 +8,10 @@ namespace homework_2.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Поле FriendName не может быть пустым")]
         public string Name { get; set; } = null!;
 
-        [Required]
-        public string Place { get; set; } = null!;
+        [StringLength(25, ErrorMessage = "Максимальная длинна строки 25 символов")]
+        public string Place { get; set; } = string.Empty;
     }
 }
