@@ -1,4 +1,5 @@
-﻿using homework_2.Database;
+﻿using homework_2.Services.Friends;
+using homework_2.Database;
 using homework_2.Models;
 
 namespace homework_2.Services.Friends

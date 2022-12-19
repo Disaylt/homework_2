@@ -1,4 +1,4 @@
-namespace homework_2.Models
+namespace homework_2.ViewModels
 {
     public class ErrorViewModel
     {

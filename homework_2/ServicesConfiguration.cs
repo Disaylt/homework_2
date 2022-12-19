@@ -1,5 +1,5 @@
-﻿using homework_2.Database;
-using homework_2.Services.Friends;
+﻿using homework_2.Services.Friends;
+using homework_2.Database;
 using Microsoft.EntityFrameworkCore;
 
 namespace homework_2
@@ -12,10 +12,13 @@ namespace homework_2
             SetDefault(builder.Services);
 
             if (builder.Environment.IsProduction())
+            {
                 SetProduction(builder.Services);
-
-            if(builder.Environment.IsDevelopment())
+            }
+            else
+            {
                 SetDevelopment(builder.Services);
+            }
         }
 
         private static void AddDatabase(WebApplicationBuilder builder)
